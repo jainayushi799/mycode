@@ -1,0 +1,12 @@
+def findAnagram(sentence, word_list):
+    word_list.reverse()
+    for f_word in word_list:
+        if word_list[-1] == f_word:
+            break
+        index1 = word_list.index(f_word) + 1
+        for s_word in word_list[index1:]:
+            if word_list[-1] == s_word: break
+            index2 = word_list.index(s_word) + 1
+            for t_word in word_list[index2:]:
+                if (sorted(list(f_word + s_word + t_word)) == sorted(list(sentence))):
+                    return (f_word, s_word, t_word)
